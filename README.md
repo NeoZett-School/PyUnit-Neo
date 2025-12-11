@@ -55,4 +55,4 @@ This project is licensed under the **MIT License** – see the [LICENCE](./LICEN
 ## Contributing
 
 Contributions, bug reports, and feature requests are welcome!
-Visit the repository: [PyUnit on GitHub](Link)
+Visit the repository: [PyUnit on GitHub](https://github.com/NeoZett-School/PyUnit)
