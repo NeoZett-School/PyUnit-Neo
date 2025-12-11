@@ -22,11 +22,13 @@ classifiers = [
     "Operating System :: Microsoft :: Windows",
     "Topic :: Software Development :: Libraries",
 ]
-homepage = "https://github.com/NeoZett-School/PyUnit"
-repository = "https://github.com/NeoZett-School/PyUnit"
-documentation = "https://github.com/NeoZett-School/PyUnit#readme"
+
+# setuptools does not allow:
+# homepage = "https://github.com/NeoZett-School/PyUnit"
+# repository = "https://github.com/NeoZett-School/PyUnit"
+# documentation = "https://github.com/NeoZett-School/PyUnit#readme"
 
 [project.urls]
-Bug Tracker = "https://github.com/NeoZett-School/PyUnit/issues"
+Bug-Tracker = "https://github.com/NeoZett-School/PyUnit/issues"
 Documentation = "https://github.com/NeoZett-School/PyUnit#readme"
 Source = "https://github.com/NeoZett-School/PyUnit"
