@@ -1,6 +1,6 @@
 """Metadata for the PyUnit package."""
 
-__name__ = "PyUnit"
+__name__ = "pyunit-neo"
 __version__ = "1.0.0"
 __author__ = "Neo Zetterberg"
 __email__ = "your-email@example.com"   # optional, recommended
