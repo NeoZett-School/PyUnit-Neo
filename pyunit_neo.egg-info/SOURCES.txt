@@ -2,6 +2,10 @@ LICENSE
 README.md
 pyproject.toml
 setup.cfg
+PyUnit_Neo.egg-info/PKG-INFO
+PyUnit_Neo.egg-info/SOURCES.txt
+PyUnit_Neo.egg-info/dependency_links.txt
+PyUnit_Neo.egg-info/top_level.txt
 pyunit/__init__.py
 pyunit/__init__.pyi
 pyunit/_about.py
