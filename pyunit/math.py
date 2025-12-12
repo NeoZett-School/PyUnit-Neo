@@ -3,7 +3,10 @@ The given unit must be initialized, or it will almost always falter.
 
 Use either floats or distances. When the typing annotiates distance, you can also 
 enter a floating value. Be aware, that the return value will still be either a distance 
-or a angle."""
+or a angle.
+
+Any angle parameter must either be an angle or a float in degrees. Otherwise, it won't 
+function correctly. Consider using `math.degrees` for radians values."""
 
 from ._internal import Distance, Angle
 import math # type: ignore
@@ -41,7 +44,7 @@ def dx(dy, alpha):
     """Get the dx (adjacent) given dy (opposite) and angle.
     tan(alpha) == dy / dx  => dx = dy / tan(alpha)
     """
-    tan_a = math.tan(alpha)
+    tan_a = math.tan(math.radians(alpha))
     if tan_a == 0:
         raise ValueError("tan(angle) == 0 -> dx would be infinite (angle is 0 or pi).")
     return Distance(dy / tan_a)
@@ -50,13 +53,13 @@ def dy(dx, alpha):
     """Get the dy (opposite) given dx (adjacent) and angle.
     tan(angle) == dy / dx  => dy = dx * tan(angle)
     """
-    return Distance(math.tan(alpha) * dx)
+    return Distance(math.tan(math.radians(alpha)) * dx)
 
 def h_cos(dx, alpha):
     """Get the hypotenuse given dx (adjacent) and angle.
     cos(alpha) == dx / h  => h = dx / cos(alpha)
     """
-    cos_a = math.cos(alpha)
+    cos_a = math.cos(math.radians(alpha))
     if cos_a == 0:
         raise ValueError("cos(angle) == 0 -> hypotenuse would be infinite (angle is pi/2 or 3pi/2).")
     return Distance(dx / cos_a)
@@ -65,7 +68,7 @@ def h_sin(dy, alpha):
     """Get the hypotenuse given dy (opposite) and angle.
     sin(alpha) == dy / h  => h = dy / sin(alpha)
     """
-    sin_a = math.sin(alpha)
+    sin_a = math.sin(math.radians(alpha))
     if sin_a == 0:
         raise ValueError("sin(angle) == 0 -> hypotenuse would be infinite (angle is 0 or pi).")
     return Distance(dy / sin_a)
@@ -89,12 +92,12 @@ def dy_h(dx, h):
 def dx_h2(alpha, h):
     """Get the dx (adjacent) given by angle and hypotenuse h.
     dx = cos(alpha) * h"""
-    return Distance(math.cos(alpha) * h)
+    return Distance(math.cos(math.radians(alpha)) * h)
 
 def dy_h2(alpha, h):
     """Get the dy (oposite) given by angle and hypotenuse h.
     dy = sin(alpha) * h"""
-    return Distance(math.sin(alpha) * h)
+    return Distance(math.sin(math.radians(alpha)) * h)
 
 def distance(dx, dy): # Alias to h
     """Get the distance (hypotenuse) between two points."""
@@ -114,7 +117,7 @@ def to_polar(dx, dy):
 
 def from_polar(r, alpha):
     """Return Cartesian coordinates (dx, dy) from polar (r, alpha)."""
-    return Distance(r * math.cos(alpha)), Distance(r * math.sin(alpha))
+    return Distance(r * math.cos(math.radians(alpha))), Distance(r * math.sin(math.radians(alpha)))
 
 def wrap_angle(alpha):
     """Normalize angle into the interval (-pi, pi]."""
@@ -133,8 +136,8 @@ def mean_angle(angles):
     c = 0.0
     count = 0
     for a in angles:
-        s += math.sin(a)
-        c += math.cos(a)
+        s += math.sin(math.radians(a))
+        c += math.cos(math.radians(a))
         count += 1
     if count == 0:
         raise ValueError("mean_angle requires at least one angle")
@@ -169,7 +172,7 @@ def normalize(dx, dy):
     r = math.hypot(dx, dy)
     if math.isclose(r, 0.0, abs_tol=1e-15):
         return 0.0, 0.0
-    return Distance(dx.m / r), Distance(dy.m / r)
+    return Distance(dx / r), Distance(dy / r)
 
 def scale_to(dx, dy, length):
     """Scale vector (dx, dy) to the provided length. Returns (0,0) when input is zero vector.
@@ -183,8 +186,8 @@ def scale_to(dx, dy, length):
 
 def rotate(dx, dy, alpha):
     """Rotate vector (dx, dy) by angle alpha (radians) counter-clockwise."""
-    ca = math.cos(alpha)
-    sa = math.sin(alpha)
+    ca = math.cos(math.radians(alpha))
+    sa = math.sin(math.radians(alpha))
     return dx * math.radians(ca) - dy * math.radians(sa), dx * math.radians(sa) + dy * math.radians(ca)
 
 def project_point_on_line(px, py, ax, ay, bx, by):
