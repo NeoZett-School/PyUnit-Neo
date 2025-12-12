@@ -1,7 +1,7 @@
 """Metadata for the PyUnit package."""
 
 __name__ = "PyUnit-Neo"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __author__ = "Neo Zetterberg"
 __email__ = "your-email@example.com"   # optional, recommended
 __link__ = "https://github.com/NeoZett-School/PyUnit"  # homepage or repo

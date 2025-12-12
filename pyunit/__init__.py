@@ -43,9 +43,65 @@ from ._internal import (
 from . import math as UnitMath
 Length = Distance
 Stretch = Distance
+Pixels = Distance
+Magnitude = Distance
+Span = Distance
+Range = Distance
+Offset = Distance
+Delta = Distance
+Width = Distance
+Height = Distance
+Depth = Distance
+Scale = Distance
+Extent = Distance
+Bounds = Distance
+Radius = Distance
+Diameter = Distance
+Units = Distance
+
 Mass = Weight
+Load = Weight
+
 Rotation = Angle
+Orientation = Angle
+Heading = Angle
+Bearing = Angle
+Direction = Angle
+Spin = Angle
+Turn = Angle
+Yaw = Angle
+Pitch = Angle
+Roll = Angle
+
 Points = Score
+Tally = Score
+Rating = Score
+
+Health = int
+HP = Health
+Vitality = Health
+Life = Health
+Stamina = Health
+
+Currency = Score
+Coins = Currency
+Money = Currency
+Credits = Currency
+Gems = Currency
+Tokens = Currency
+
+Rank = Value
+Data = Value
+Item = Value
+
+Duration = Time
+Interval = Time
+Elapsed = Time
+
+Name = Text
+Key = Text
+Id = Text
+Tag = Text
 
 import os, sys
 from ._about import __name__, __version__, __author__, __link__

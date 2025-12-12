@@ -41,7 +41,7 @@ a = new_char("A")  # type: Char["A"]
 
 # Angle calculation
 from pyunit import UnitMath as um
-angle = um.alpha(3, 4)  # returns angle in radians
+angle = um.alpha(3, 4).radians  # returns angle in radians
 ```
 
 ---

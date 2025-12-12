@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: PyUnit-Neo
-Version: 1.0.1
+Version: 1.0.2
 Summary: Tools for readable unit types, geometry, and trigonometric utilities.
 Home-page: https://github.com/NeoZett-School/PyUnit
 Author: Neo Zetterberg
@@ -65,7 +65,7 @@ a = new_char("A")  # type: Char["A"]
 
 # Angle calculation
 from pyunit import UnitMath as um
-angle = um.alpha(3, 4)  # returns angle in radians
+angle = um.alpha(3, 4).radians  # returns angle in radians
 ```
 
 ---
